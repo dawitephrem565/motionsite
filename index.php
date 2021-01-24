@@ -85,12 +85,12 @@ $motion->new_feed_back($fname,$email,$phone,$message,$date);
       <nav class="nav-menu d-none d-lg-block">
         <ul>
           <li class="active"><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
+          <li><a href="about.php">About</a></li>
           <li><a href="services.html">Services</a></li>
-          <li><a href="projects.html">Projects</a></li>
+          <li><a href="projects.php">Projects</a></li>
         
           
-          <li><a href="news.html">News</a></li>
+          <li><a href="news.php">News</a></li>
 
         </ul>
       </nav><!-- .nav-menu -->

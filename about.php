@@ -73,21 +73,16 @@ $motion = new Motion();?>
           <li><a href="#">projects</a></li>
         
           <li hidden class="drop-down"><a href="">Drop Down</a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="drop-down"><a href="#">Deep Drop Down</a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
+          <ul>
+          <li class="active"><a href="index.html">Home</a></li>
+          <li><a href="about.php">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="projects.php">Projects</a></li>
+        
+          
+          <li><a href="news.php">News</a></li>
+
+        </ul>
           </li>
           <li><a href="#contact">Contact</a></li>
 
