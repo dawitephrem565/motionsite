@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title> Dashboard</title>
+  <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ <link href="css/sb-admin-2.min.css" rel="stylesheet">
+ <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-analytics.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-auth.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-firestore.js"></script>
+
+
+ <script src="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"></script>
+ <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script src="../src/js/status.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+ <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-storage.js"></script>
+
+ <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+
+
+
+
+
+
+
+
+  
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+          <!-- Sidebar Toggle (Topbar) -->
+          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+
+          <!-- Topbar Search -->
+          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+            <div class="input-group">
+              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="button">
+                  <i class="fas fa-search fa-sm"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <!-- Topbar Navbar -->
+          <ul class="navbar-nav ml-auto">
+
+            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+            <li class="nav-item dropdown no-arrow d-sm-none">
+              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-search fa-fw"></i>
+              </a>
+              <!-- Dropdown - Messages -->
+              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                <form class="form-inline mr-auto w-100 navbar-search">
+                  <div class="input-group">
+                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                      <button class="btn btn-primary" type="button">
+                        <i class="fas fa-search fa-sm"></i>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </li>
+
+            <!-- Nav Item - Alerts -->
+            <li class="nav-item dropdown no-arrow mx-1">
+              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-bell fa-fw"></i>
+                <!-- Counter - Alerts -->
+                <span class="badge badge-danger badge-counter">3+</span>
+              </a>
+              <!-- Dropdown - Alerts -->
+              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+                <h6 class="dropdown-header">
+                  Alerts Center
+                </h6>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-primary">
+                      <i class="fas fa-file-alt text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">December 12, 2019</div>
+                    <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-success">
+                      <i class="fas fa-donate text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">December 7, 2019</div>
+                    $290.29 has been deposited into your account!
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-warning">
+                      <i class="fas fa-exclamation-triangle text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">December 2, 2019</div>
+                    Spending Alert: We've noticed unusually high spending for your account.
+                  </div>
+                </a>
+                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+              </div>
+            </li>
+
+            <!-- Nav Item - Messages -->
+            <li class="nav-item dropdown no-arrow mx-1">
+              <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-envelope fa-fw"></i>
+                <!-- Counter - Messages -->
+                <span class="badge badge-danger badge-counter">7</span>
+              </a>
+              <!-- Dropdown - Messages -->
+              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
+                <h6 class="dropdown-header">
+                  Message Center
+                </h6>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="dropdown-list-image mr-3">
+                    <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
+                    <div class="status-indicator bg-success"></div>
+                  </div>
+                  <div class="font-weight-bold">
+                    <div class="text-truncate">Hi there! I am wondering if you can help me with a problem I've been having.</div>
+                    <div class="small text-gray-500">Emily Fowler · 58m</div>
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="dropdown-list-image mr-3">
+                    <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60" alt="">
+                    <div class="status-indicator"></div>
+                  </div>
+                  <div>
+                    <div class="text-truncate">I have the photos that you ordered last month, how would you like them sent to you?</div>
+                    <div class="small text-gray-500">Jae Chun · 1d</div>
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="dropdown-list-image mr-3">
+                    <img class="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60" alt="">
+                    <div class="status-indicator bg-warning"></div>
+                  </div>
+                  <div>
+                    <div class="text-truncate">Last month's report looks great, I am very happy with the progress so far, keep up the good work!</div>
+                    <div class="small text-gray-500">Morgan Alvarez · 2d</div>
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="dropdown-list-image mr-3">
+                    <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="">
+                    <div class="status-indicator bg-success"></div>
+                  </div>
+                  <div>
+                    <div class="text-truncate">Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good...</div>
+                    <div class="small text-gray-500">Chicken the Dog · 2w</div>
+                  </div>
+                </a>
+                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+              </div>
+            </li>
+
+            <div class="topbar-divider d-none d-sm-block"></div>
+
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
+                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+              </a>
+              <!-- Dropdown - User Information -->
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Profile
+                </a>
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Settings
+                </a>
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Activity Log
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Logout
+                </a>
+              </div>
+            </li>
+
+          </ul>
+
+        </nav>
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+          </div>
+
+          <!-- Content Row -->
+          <div class="row">
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Document Post</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">Document</div>
+                    </div>
+                    <div class="col-auto">
+                      <h4 class="bold">5</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Video Links</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">Video Link Post</div>
+                    </div>
+                    <div class="col-auto">
+                      <h4 class="bold">5</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">File Post</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">File Post</div>
+                    </div>
+                    <div class="col-auto">
+                      <h5 class="bold">5</h5>
+                       </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+<div class="container">
+          <div class="text-right"><button data-toggle="modal" data-target="#add_course_modal" data-whatever="add_course_modal"  class="btn btn-success" > Add Course</button></div>
+         <br>
+
+         <!-- Modal Existance -->
+         
+          <!-- Content Row -->
+          <table id="document_table" class="table  table-striped table-bordered" style="width:100%">
+            
+        </table>
+
+
+  
+<div class="modal fade" id="add_course_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <nav>
+          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="nav-document-tab" data-toggle="tab" href="#nav-document" role="tab" aria-controls="nav-document" aria-selected="true">Document</a>
+            <a class="nav-item nav-link" id="nav-video-tab" data-toggle="tab" href="#nav-video_con" role="tab" aria-controls="nav-video_con" aria-selected="false">Video Conference</a>
+            <a class="nav-item nav-link" id="nav-assignment-tab" data-toggle="tab" href="#nav-assignment" role="tab" aria-controls="nav-assignment" aria-selected="false">Assignment</a>
+            <a class="nav-item nav-link" id="nav-file-tab" data-toggle="tab" href="#nav-file" role="tab" aria-controls="nav-file" aria-selected="false">File Upload </a>
+         
+          </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="nav-document" role="tabpanel" aria-labelledby="nav-document-tab">
+ 
+            <div class="row">
+              <div class="col">
+                <label for="staticEmail" class="col-lg-12 col-form-label">Course Name</label>
+                <div class="col-sm-10">
+                  <select  id="document_course_name" class="form-control"  >
+                   <option value="Basic Mathematics for Natural Sciences"> Basic Mathematics for Natural Sciences                          </option>
+                   <option value="General Psychology and Life skills"> General Psychology and Life skills</option>
+                   <option value=" Introduction to International Relations and Global Issues"> Introduction to International Relations and Global Issues</option>
+                   <option value=" Physical Fitness and Conditioning"> Physical Fitness and Conditioning</option>
+                   <option value=" Geograhpy of Ethiopia and The Horn"> Geograhpy of Ethiopia and The Horn</option>
+                   <option value="Communicative Enlglish Skill I"> Communicative Enlglish Skill I</option>
+                   <option value="Logic and Critical Thinking"> Logic and Critical Thinking</option>
+                   <option value="Antropology of Ethiopian Societies and Cultures"> Antropology of Ethiopian Societies and Cultures</option>
+                   <option value="Enteperineurship & Business Development"> Enteperineurship & Business Development</option>
+                   <option value=" Introduction to Emerging Technologies"> Introduction to Emerging Technologies</option>
+                   <option value=" History of Ethiopia and the Horn"> History of Ethiopia and the Horn</option>
+                   <option value=" Ethics and Moral Education"> Ethics and Moral Education</option>
+                   <option value=" Introduction to Economics"> Introduction to Economics</option>
+                   <option value="Communicative English II"> Communicative English II</option>
+                   <option value="Fundamentals of Programming"> Fundamentals of Programming</option>
+                   <option value="Linear Algebra"> Linear Algebra</option>
+                   <option value="Fundamentals of Electricity and Electronic Devices"> Fundamentals of Electricity and Electronic Devices</option>
+                   <option value="Fundamentals of Database"> Fundamentals of Database</option>
+                   <option value=" Probability and Statistics"> Probability and Statistics</option>
+                   <option value="Computer organization and architecture"> Computer organization and architecture</option>
+                   <option value="Digital Electronics" > Digital Electronics</option>
+                   <option value=" Applied Mathematics"> Applied Mathematics</option>
+                   <option value="Object Oriented Programming"> Object Oriented Programming</option>
+                   <option value="Discrete Mathematics and Combinatorics"> Discrete Mathematics and Combinatorics</option>
+                   <option value=" Data Structures and Algorithms"> Data Structures and Algorithms</option>
+                   <option value=" Microprocessor and Assembly Language Programming"> Microprocessor and Assembly Language Programming</option>
+                   <option value=" Operating System"> Operating System</option>
+                   <option value=" Data Communication & Computer Networking"> Data Communication & Computer Networking</option>
+                   <option value="Advanced Database System"> Advanced Database System</option>
+                   <option value=" Advanced Programming"> Advanced Programming</option>
+                   <option value="Numerical Analysis"> Numerical Analysis</option>
+                   <option value=" Wireless Communication and Mobile Computing"> Wireless Communication and Mobile Computing</option>
+                   <option value="Analysis of Algorithms"> Analysis of Algorithms</option>
+                   <option value="Internet Programming"> Internet Programming</option>
+                   <option value=" Formal Language and Automata Theory"> Formal Language and Automata Theory</option>
+                   <option value="Object Oriented Software Engineering"> Object Oriented Software Engineering</option>
+                   <option value=" Computer Graphics"> Computer Graphics</option>
+                   <option value="Compiler Design"> Compiler Design</option>
+                   <option value="Technical Report Writing in Computer Science"> Technical Report Writing in Computer Science</option>
+                   <option value="Logic in Computer Science"> Logic in Computer Science</option>
+                   <option value="Complexity Theory"> Complexity Theory</option>
+                   <option value=" Elective I (one course)"> Elective I (one course)</option>
+                   <option value="Final Project I"> Final Project I</option>
+                   <option value="Industrial Practice (Internship)"> Industrial Practice (Internship)</option>
+                   <option value="Introduction to Distributed Systems"> Introduction to Distributed Systems</option>
+                   <option value="Introduction to Artificial Intelligence"> Introduction to Artificial Intelligence</option>
+                   <option value=" Computer Security"> Computer Security</option>
+                   <option value=" Elective II (one course)"> Elective II (one course)</option>
+                   <option value="Final Project II"> Final Project II</option>
+                   <option value="Selected topics in Computer Science (Seminar)"> Selected topics in Computer Science (Seminar)</option>
+                  </select value="">
+                </div>
+               </div>
+              <div class="col">
+                <label for="inputPassword" class="col-lg-12 col-form-label">Course Department</label>
+                <div class="col-sm-10">
+                  <select  id="document_course_dep" class="form-control">
+                    <option value="Computer Science"> Computer Science</option>
+                    <option value="Information Science"> Information Science</option>
+                    <option value="Information System"> Information System</option>
+                  </select>
+                </div> </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label for="staticEmail" class="col-lg-12 col-form-label">Course Year</label>
+                <div class="col-sm-10">
+                  <select  id="document_course_year" class="form-control col-lg-4" >
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                   
+                  </select>
+                </div>
+               </div>
+               <br>
+              
+            </div>
+            <hr>
+            <div class="form-group row">
+            
+
+              <label for="inputPassword" class="col-sm-2 col-form-label">Course Title</label>
+             <br>
+              <div class="col-sm-10">
+                <input type="text" id="document_course_title" class="form-control" >
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-lg-12">
+                <div class="box box-info">
+                  <div class="box-header">
+                   
+                    <!-- tools box -->
+                   
+                    <!-- /. tools -->
+                  </div>
+                  <!-- /.box-header -->
+                  <div class="box-body pad">
+               
+                          <textarea id="editor1" name="editor1" rows="10" cols="80">
+                                                  This is my textarea to be replaced with CKEditor.
+                          </textarea>
+                  
+                  </div>
+                  <button type="submit" class="btn btn-success" id="document_click">Submit</button>
+                </div></div>
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-10">
+               </div>
+            </div>
+
+
+          </div>
+  
+          <div class="tab-pane fade" id="nav-video_con" role="tabpanel" aria-labelledby="nav-video-tab">
+          
+              <div class="form-group row">
+               
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="staticEmail" class="col-lg-12 col-form-label">Course Name</label>
+                  <div class="col-sm-10">
+                    <select  id="video_course_name" class="form-control" >
+                     <option value="Basic Mathematics for Natural Sciences"> Basic Mathematics for Natural Sciences                          </option>
+                     <option value="General Psychology and Life skills"> General Psychology and Life skills</option>
+                     <option value=" Introduction to International Relations and Global Issues"> Introduction to International Relations and Global Issues</option>
+                     <option value=" Physical Fitness and Conditioning"> Physical Fitness and Conditioning</option>
+                     <option value=" Geograhpy of Ethiopia and The Horn"> Geograhpy of Ethiopia and The Horn</option>
+                     <option value="Communicative Enlglish Skill I"> Communicative Enlglish Skill I</option>
+                     <option value="Logic and Critical Thinking"> Logic and Critical Thinking</option>
+                     <option value="Antropology of Ethiopian Societies and Cultures"> Antropology of Ethiopian Societies and Cultures</option>
+                     <option value="Enteperineurship & Business Development"> Enteperineurship & Business Development</option>
+                     <option value=" Introduction to Emerging Technologies"> Introduction to Emerging Technologies</option>
+                     <option value=" History of Ethiopia and the Horn"> History of Ethiopia and the Horn</option>
+                     <option value=" Ethics and Moral Education"> Ethics and Moral Education</option>
+                     <option value=" Introduction to Economics"> Introduction to Economics</option>
+                     <option value="Communicative English II"> Communicative English II</option>
+                     <option value="Fundamentals of Programming"> Fundamentals of Programming</option>
+                     <option value="Linear Algebra"> Linear Algebra</option>
+                     <option value="Fundamentals of Electricity and Electronic Devices"> Fundamentals of Electricity and Electronic Devices</option>
+                     <option value="Fundamentals of Database"> Fundamentals of Database</option>
+                     <option value=" Probability and Statistics"> Probability and Statistics</option>
+                     <option value="Computer organization and architecture"> Computer organization and architecture</option>
+                     <option value="Digital Electronics" > Digital Electronics</option>
+                     <option value=" Applied Mathematics"> Applied Mathematics</option>
+                     <option value="Object Oriented Programming"> Object Oriented Programming</option>
+                     <option value="Discrete Mathematics and Combinatorics"> Discrete Mathematics and Combinatorics</option>
+                     <option value=" Data Structures and Algorithms"> Data Structures and Algorithms</option>
+                     <option value=" Microprocessor and Assembly Language Programming"> Microprocessor and Assembly Language Programming</option>
+                     <option value=" Operating System"> Operating System</option>
+                     <option value=" Data Communication & Computer Networking"> Data Communication & Computer Networking</option>
+                     <option value="Advanced Database System"> Advanced Database System</option>
+                     <option value=" Advanced Programming"> Advanced Programming</option>
+                     <option value="Numerical Analysis"> Numerical Analysis</option>
+                     <option value=" Wireless Communication and Mobile Computing"> Wireless Communication and Mobile Computing</option>
+                     <option value="Analysis of Algorithms"> Analysis of Algorithms</option>
+                     <option value="Internet Programming"> Internet Programming</option>
+                     <option value=" Formal Language and Automata Theory"> Formal Language and Automata Theory</option>
+                     <option value="Object Oriented Software Engineering"> Object Oriented Software Engineering</option>
+                     <option value=" Computer Graphics"> Computer Graphics</option>
+                     <option value="Compiler Design"> Compiler Design</option>
+                     <option value="Technical Report Writing in Computer Science"> Technical Report Writing in Computer Science</option>
+                     <option value="Logic in Computer Science"> Logic in Computer Science</option>
+                     <option value="Complexity Theory"> Complexity Theory</option>
+                     <option value=" Elective I (one course)"> Elective I (one course)</option>
+                     <option value="Final Project I"> Final Project I</option>
+                     <option value="Industrial Practice (Internship)"> Industrial Practice (Internship)</option>
+                     <option value="Introduction to Distributed Systems"> Introduction to Distributed Systems</option>
+                     <option value="Introduction to Artificial Intelligence"> Introduction to Artificial Intelligence</option>
+                     <option value=" Computer Security"> Computer Security</option>
+                     <option value=" Elective II (one course)"> Elective II (one course)</option>
+                     <option value="Final Project II"> Final Project II</option>
+                     <option value="Selected topics in Computer Science (Seminar)"> Selected topics in Computer Science (Seminar)</option>
+                    </select value="">
+                  </div>
+                 </div>
+                <div class="col">
+                  <label for="inputPassword" class="col-lg-12 col-form-label">Course Department</label>
+                  <div class="col-sm-10">
+                    <select  id="video_course_dep" class="form-control" >
+                      <option value="Computer Science"> Computer Science</option>
+                      <option value="Information Science"> Information Science</option>
+                      <option value="Information System"> Information System</option>
+                    </select>
+                  </div> </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="staticEmail" class="col-lg-12 col-form-label">Course Year</label>
+                  <div class="col-sm-10">
+                    <select id="video_course_year" class="form-control col-lg-4"  >
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                     
+                    </select>
+                  </div>
+                 </div>
+                 <br>
+                
+              </div>
+              <hr>
+              <div class="form-group row">
+              
+
+                <label for="video_link" class="col-sm-2 col-form-label">Video  Conference Link </label>
+               <br>
+                <div class="col-sm-10">
+                  <input  id="video_link" class="form-control">
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-lg-12">
+                  <div class="box box-info">
+                    <div class="box-header">
+                     
+                      <!-- tools box -->
+                      
+                      <!-- /. tools -->
+                    </div>
+                  
+                  </div></div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-10">
+                  <input type="submit" class="btn btn-primary" id="video_click">
+                </div>
+              </div>
+            
+          </div>
+          <div class="tab-pane fade" id="nav-assignment" role="tabpanel" aria-labelledby="nav-assignment-tab">
+           
+              <div class="form-group row">
+               
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="staticEmail" class="col-lg-12 col-form-label">Course Name</label>
+                  <div class="col-sm-10">
+                    <select  id="assignment_course_name" class="form-control" >
+                     <option value="Basic Mathematics for Natural Sciences"> Basic Mathematics for Natural Sciences                          </option>
+                     <option value="General Psychology and Life skills"> General Psychology and Life skills</option>
+                     <option value=" Introduction to International Relations and Global Issues"> Introduction to International Relations and Global Issues</option>
+                     <option value=" Physical Fitness and Conditioning"> Physical Fitness and Conditioning</option>
+                     <option value=" Geograhpy of Ethiopia and The Horn"> Geograhpy of Ethiopia and The Horn</option>
+                     <option value="Communicative Enlglish Skill I"> Communicative Enlglish Skill I</option>
+                     <option value="Logic and Critical Thinking"> Logic and Critical Thinking</option>
+                     <option value="Antropology of Ethiopian Societies and Cultures"> Antropology of Ethiopian Societies and Cultures</option>
+                     <option value="Enteperineurship & Business Development"> Enteperineurship & Business Development</option>
+                     <option value=" Introduction to Emerging Technologies"> Introduction to Emerging Technologies</option>
+                     <option value=" History of Ethiopia and the Horn"> History of Ethiopia and the Horn</option>
+                     <option value=" Ethics and Moral Education"> Ethics and Moral Education</option>
+                     <option value=" Introduction to Economics"> Introduction to Economics</option>
+                     <option value="Communicative English II"> Communicative English II</option>
+                     <option value="Fundamentals of Programming"> Fundamentals of Programming</option>
+                     <option value="Linear Algebra"> Linear Algebra</option>
+                     <option value="Fundamentals of Electricity and Electronic Devices"> Fundamentals of Electricity and Electronic Devices</option>
+                     <option value="Fundamentals of Database"> Fundamentals of Database</option>
+                     <option value=" Probability and Statistics"> Probability and Statistics</option>
+                     <option value="Computer organization and architecture"> Computer organization and architecture</option>
+                     <option value="Digital Electronics" > Digital Electronics</option>
+                     <option value=" Applied Mathematics"> Applied Mathematics</option>
+                     <option value="Object Oriented Programming"> Object Oriented Programming</option>
+                     <option value="Discrete Mathematics and Combinatorics"> Discrete Mathematics and Combinatorics</option>
+                     <option value=" Data Structures and Algorithms"> Data Structures and Algorithms</option>
+                     <option value=" Microprocessor and Assembly Language Programming"> Microprocessor and Assembly Language Programming</option>
+                     <option value=" Operating System"> Operating System</option>
+                     <option value=" Data Communication & Computer Networking"> Data Communication & Computer Networking</option>
+                     <option value="Advanced Database System"> Advanced Database System</option>
+                     <option value=" Advanced Programming"> Advanced Programming</option>
+                     <option value="Numerical Analysis"> Numerical Analysis</option>
+                     <option value=" Wireless Communication and Mobile Computing"> Wireless Communication and Mobile Computing</option>
+                     <option value="Analysis of Algorithms"> Analysis of Algorithms</option>
+                     <option value="Internet Programming"> Internet Programming</option>
+                     <option value=" Formal Language and Automata Theory"> Formal Language and Automata Theory</option>
+                     <option value="Object Oriented Software Engineering"> Object Oriented Software Engineering</option>
+                     <option value=" Computer Graphics"> Computer Graphics</option>
+                     <option value="Compiler Design"> Compiler Design</option>
+                     <option value="Technical Report Writing in Computer Science"> Technical Report Writing in Computer Science</option>
+                     <option value="Logic in Computer Science"> Logic in Computer Science</option>
+                     <option value="Complexity Theory"> Complexity Theory</option>
+                     <option value=" Elective I (one course)"> Elective I (one course)</option>
+                     <option value="Final Project I"> Final Project I</option>
+                     <option value="Industrial Practice (Internship)"> Industrial Practice (Internship)</option>
+                     <option value="Introduction to Distributed Systems"> Introduction to Distributed Systems</option>
+                     <option value="Introduction to Artificial Intelligence"> Introduction to Artificial Intelligence</option>
+                     <option value=" Computer Security"> Computer Security</option>
+                     <option value=" Elective II (one course)"> Elective II (one course)</option>
+                     <option value="Final Project II"> Final Project II</option>
+                     <option value="Selected topics in Computer Science (Seminar)"> Selected topics in Computer Science (Seminar)</option>
+                    </select value="">
+                  </div>
+                 </div>
+                <div class="col">
+                  <label for="inputPassword" class="col-lg-12 col-form-label">Course Department</label>
+                  <div class="col-sm-10">
+                    <select  id="assignment_course_dep" class="form-control" >
+                      <option value="Computer Science"> Computer Science</option>
+                      <option value="Information Science"> Information Science</option>
+                      <option value="Information System"> Information System</option>
+                    </select>
+                  </div> </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="staticEmail" class="col-lg-12 col-form-label">Course Year</label>
+                  <div class="col-sm-10">
+                    <select  id="assignment_course_year" class="form-control col-lg-4"  >
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                     
+                    </select>
+                  </div>
+                 </div>
+                 <br>
+                
+              </div>
+              <hr>
+              <div class="form-group row">
+              
+                <div class="container">
+                 
+                     <progress value="0"   id="assigment_uploader" style="-webkit-appearance: none; background-color: #5f46ee; width: 100%; height: 20px; border: 1px solid #ccc;color: #5f46ee;"  max="100">0%</progress>
+                  
+                  </div>
+                <input type="file" class="btn btn-success col-lg-12" value="Upload" id="assigment_fileuploader">
+                  
+              
+               </div>
+              
+   
+              </div>
+            
+              
+          
+          <div class="tab-pane fade" id="nav-file" role="tabpanel" aria-labelledby="nav-file-tab">
+            
+              <div class="form-group row">
+               
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="staticEmail" class="col-lg-12 col-form-label">Course Name</label>
+                  <div class="col-sm-10">
+                    <select  id="file_course_name" class="form-control" >
+                     <option value="Basic Mathematics for Natural Sciences"> Basic Mathematics for Natural Sciences                          </option>
+                     <option value="General Psychology and Life skills"> General Psychology and Life skills</option>
+                     <option value=" Introduction to International Relations and Global Issues"> Introduction to International Relations and Global Issues</option>
+                     <option value=" Physical Fitness and Conditioning"> Physical Fitness and Conditioning</option>
+                     <option value=" Geograhpy of Ethiopia and The Horn"> Geograhpy of Ethiopia and The Horn</option>
+                     <option value="Communicative Enlglish Skill I"> Communicative Enlglish Skill I</option>
+                     <option value="Logic and Critical Thinking"> Logic and Critical Thinking</option>
+                     <option value="Antropology of Ethiopian Societies and Cultures"> Antropology of Ethiopian Societies and Cultures</option>
+                     <option value="Enteperineurship & Business Development"> Enteperineurship & Business Development</option>
+                     <option value=" Introduction to Emerging Technologies"> Introduction to Emerging Technologies</option>
+                     <option value=" History of Ethiopia and the Horn"> History of Ethiopia and the Horn</option>
+                     <option value=" Ethics and Moral Education"> Ethics and Moral Education</option>
+                     <option value=" Introduction to Economics"> Introduction to Economics</option>
+                     <option value="Communicative English II"> Communicative English II</option>
+                     <option value="Fundamentals of Programming"> Fundamentals of Programming</option>
+                     <option value="Linear Algebra"> Linear Algebra</option>
+                     <option value="Fundamentals of Electricity and Electronic Devices"> Fundamentals of Electricity and Electronic Devices</option>
+                     <option value="Fundamentals of Database"> Fundamentals of Database</option>
+                     <option value=" Probability and Statistics"> Probability and Statistics</option>
+                     <option value="Computer organization and architecture"> Computer organization and architecture</option>
+                     <option value="Digital Electronics" > Digital Electronics</option>
+                     <option value=" Applied Mathematics"> Applied Mathematics</option>
+                     <option value="Object Oriented Programming"> Object Oriented Programming</option>
+                     <option value="Discrete Mathematics and Combinatorics"> Discrete Mathematics and Combinatorics</option>
+                     <option value=" Data Structures and Algorithms"> Data Structures and Algorithms</option>
+                     <option value=" Microprocessor and Assembly Language Programming"> Microprocessor and Assembly Language Programming</option>
+                     <option value=" Operating System"> Operating System</option>
+                     <option value=" Data Communication & Computer Networking"> Data Communication & Computer Networking</option>
+                     <option value="Advanced Database System"> Advanced Database System</option>
+                     <option value=" Advanced Programming"> Advanced Programming</option>
+                     <option value="Numerical Analysis"> Numerical Analysis</option>
+                     <option value=" Wireless Communication and Mobile Computing"> Wireless Communication and Mobile Computing</option>
+                     <option value="Analysis of Algorithms"> Analysis of Algorithms</option>
+                     <option value="Internet Programming"> Internet Programming</option>
+                     <option value=" Formal Language and Automata Theory"> Formal Language and Automata Theory</option>
+                     <option value="Object Oriented Software Engineering"> Object Oriented Software Engineering</option>
+                     <option value=" Computer Graphics"> Computer Graphics</option>
+                     <option value="Compiler Design"> Compiler Design</option>
+                     <option value="Technical Report Writing in Computer Science"> Technical Report Writing in Computer Science</option>
+                     <option value="Logic in Computer Science"> Logic in Computer Science</option>
+                     <option value="Complexity Theory"> Complexity Theory</option>
+                     <option value=" Elective I (one course)"> Elective I (one course)</option>
+                     <option value="Final Project I"> Final Project I</option>
+                     <option value="Industrial Practice (Internship)"> Industrial Practice (Internship)</option>
+                     <option value="Introduction to Distributed Systems"> Introduction to Distributed Systems</option>
+                     <option value="Introduction to Artificial Intelligence"> Introduction to Artificial Intelligence</option>
+                     <option value=" Computer Security"> Computer Security</option>
+                     <option value=" Elective II (one course)"> Elective II (one course)</option>
+                     <option value="Final Project II"> Final Project II</option>
+                     <option value="Selected topics in Computer Science (Seminar)"> Selected topics in Computer Science (Seminar)</option>
+                    </select value="">
+                  </div>
+                 </div>
+                <div class="col">
+                  <label for="inputPassword" class="col-lg-12 col-form-label">Course Department</label>
+                  <div class="col-sm-10">
+                    <select  id="file_course_dep" class="form-control" >
+                      <option value="Computer Science"> Computer Science</option>
+                      <option value="Information Science"> Information Science</option>
+                      <option value="Information System"> Information System</option>
+                    </select>
+                  </div> </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="staticEmail" class="col-lg-12 col-form-label">Course Year</label>
+                  <div class="col-sm-10">
+                    <select  id="file_course_year" class="form-control col-lg-4"  >
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                     
+                    </select>
+                  </div>
+                 </div>
+                 <br>
+                
+              </div>
+              <hr>
+              
+              <div class="form-group row">
+              
+                <div class="container">
+                 
+                     <progress value="0"   id="file_uploader" style="-webkit-appearance: none; background-color: #5f46ee; width: 100%; height: 20px; border: 1px solid #ccc;color: #5f46ee;"  max="100">0%</progress>
+                  
+                  </div>
+                <input type="file" class="btn btn-success col-lg-12" value="Upload" id="file_fileuploader">
+                  
+              
+               </div>
+             
+            
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send message</button>
+      </div>
+    </div>
+  </div>
+</div>
+        </div>
+         
+          <!-- Content Row -->
+          
+
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Your Website 2019</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<script src="jsmode/app.js"></script>
+<script src="jsmode/datatable.js"></script>
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="vendor/chart.js/Chart.min.js"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="js/demo/chart-area-demo.js"></script>
+  <script src="js/demo/chart-pie-demo.js"></script>
+  <script src="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"></script>
+  <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+  <script>
+    CKEDITOR.replace( 'editor1' );
+</script>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+ <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+     
+      <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+      <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+      <script src="jsmode/datatables-demo.js"></script>
+      
+</body>
+
+</html>
