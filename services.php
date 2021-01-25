@@ -28,8 +28,8 @@ if($train_btn)
     $train_explain=$_POST['train_explain'];
     $train_payment_type=$_POST['train_payment_type'];
     $train_location=$_POST['train_location'];
-    $file_name=$_FILES['train_file']['name'];
-    move_uploaded_file($_FILES['train_file']['tmp_name'] , "admin/File/$file_name");
+    $file_name=$_FILES['file_name']['name'];
+    move_uploaded_file($_FILES['file_name']['tmp_name'] , "admin/File/$file_name");
     $file_path="File/$file_name";
     $date = date('Y-m-d');
   $motion->add_new_train($train_fname,$train_email,$train_tele,$train_mobile,$train_type,$train_payment_type,$train_location,$file_path,$train_explain,$date);
@@ -486,7 +486,7 @@ if($vol_btn)
             </button>
           </div>
           <div class="modal-body">
-              <form action="" method="POST">
+              <form action="" method="POST"  enctype="multipart/form-data">
                   <div class="form-row">
                     <div class="form-group col-md-6"> 
                       
@@ -588,7 +588,7 @@ if($vol_btn)
                     </div>
                       <div class="custom-file">
                           <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Bank</label>
-                          <input type="file" name="train_file" class="custom-file-input" id="customFile">
+                          <input type="file" name="file_name" class="custom-file-input" id="customFile">
                           <label class="custom-file-label" for="customFile">Upload bank advice</label>
                         </div>
                         <div class="form-group">
