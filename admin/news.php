@@ -40,7 +40,7 @@ if($document)
     $file_name=$_FILES['file_name']['name'];
     move_uploaded_file($_FILES['file_name']['tmp_name'] , "File/$file_name");
     $file_path="File/$file_name";
-    $sql =mysqli_query($con,"insert into news (news_title,news_descr,news_image,Updated_Date) value('$title_upload','$description','$file_path',now())") or die('<script> alert('.mysqli_error().')</script>"');
+    $sql =mysqli_query($con,"insert into news (news_title,news_descr,news_image,Updated_Date) value('$title_upload','$description','$file_path',now())") or die('Error Happend');
     header("location: dashboard.php");
     exit;
 }
