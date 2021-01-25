@@ -97,7 +97,7 @@ $motion->new_feed_back($fname,$email,$phone,$message,$date);
         </nav><!-- .nav-menu -->
   
 
-      <a href="#" class="appointment-btn scrollto">Registration Now</a>
+      <a href="#appointment" class="appointment-btn scrollto">Send Feed Back/a>
       
 
     </div>

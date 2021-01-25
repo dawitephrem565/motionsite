@@ -3,17 +3,7 @@
  class Motion extends DBH{
 
     
-     function service ()
-     {
-        $display_product="";
-        $stmt = $this->connect()->query("SELECT * FROM product_item where product_cat='$type'");
-        while ($row=$stmt->fetch(PDO::FETCH_OBJ))
-        {
-     
-            $display_product .='  ';
-        }
-        echo $display_product;
-     }
+    
      function gallary()
      {
         $display_product="";
@@ -452,7 +442,7 @@ function news_page()
         {
      
             $display_product .='  <div class="col-md-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-            <div class="icon-box">
+            <div style="margin-top: 10%;" class="icon-box">
              
               <h4>'.$row->title.'</h4>
               <p>'.$row->descr.'</p>
@@ -473,14 +463,13 @@ function news_page()
         {
      
             $display_product .=' <div class="col-lg-6 d-flex align-items-stretch">
-            <div class="content">
+            <div   class="content">
               <h3>'.$row->title.'</h3>
                  <ul>
                 '.$row->descr.'  
               
                 </ul>
-              </p>
-              
+             
             </div>
           </div>
         

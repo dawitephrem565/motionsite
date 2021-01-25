@@ -81,9 +81,7 @@ $motion = new Motion();?>
         </nav><!-- .nav-menu -->
   
 
-        <a href="#" class="appointment-btn scrollto">Registration Now</a>
-        
-  
+      
       </div>
     </header><!-- End Header -->
   
