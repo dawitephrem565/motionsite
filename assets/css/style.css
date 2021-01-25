@@ -1544,6 +1544,7 @@ section {
   font-size: 3rem;
   font-weight: 700;
   background: linear-gradient(-45deg, #3db3c5, #274685);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
