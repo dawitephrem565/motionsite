@@ -34,6 +34,226 @@
         echo $display_product;
 
      }
+
+     function fetch_unchecked_train_request()
+     {
+         $display_pp='';
+         $stmt = $this->connect()->query("SELECT * FROM train where seen='false'  ");
+         while ($row=$stmt->fetch(PDO::FETCH_OBJ))
+         {
+             $display_pp .='
+         <tr>
+                 <td>'.$row->id.'</td>
+                 <td>'.$row->fullname.'</td>
+                 <td>'.$row->email.'</td>
+                 <td>'.$row->telephone.'</td>
+                 <td>'.$row->mobile.'</td>
+                 <td>'.$row->Date.'</td>
+                 
+                
+                 <td>
+               <div class="dropdown">
+                <a href="view_detail_data_train.php?id='.$row->id.'" class="btn btn-danger ">View</a>
+  
+  </div>
+        
+               </td>
+             </tr>
+         
+         '
+      ;
+         }
+         echo $display_pp;
+     }
+
+
+
+     
+     function fetch_checked_train_request()
+     {
+         $display_pp='';
+         $stmt = $this->connect()->query("SELECT * FROM train where seen='true'  ");
+         while ($row=$stmt->fetch(PDO::FETCH_OBJ))
+         {
+             $display_pp .='
+         <tr>
+                 <td>'.$row->id.'</td>
+                 <td>'.$row->fullname.'</td>
+                 <td>'.$row->email.'</td>
+                 <td>'.$row->telephone.'</td>
+                 <td>'.$row->mobile.'</td>
+                 <td>'.$row->Date.'</td>
+                 
+                
+                 <td>
+               <div class="dropdown">
+                <a href="view_detail_data_train.php?id='.$row->id.'" class="btn btn-danger ">View</a>
+  
+  </div>
+        
+               </td>
+             </tr>
+         
+         '
+      ;
+         }
+         echo $display_pp;
+     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     function fetch_checked_voluntrism_request()
+     {
+         $display_pp='';
+         $stmt = $this->connect()->query("SELECT * FROM voluntrism where seen='true'  ");
+         while ($row=$stmt->fetch(PDO::FETCH_OBJ))
+         {
+             $display_pp .='
+         <tr>
+                 <td>'.$row->id.'</td>
+                 <td>'.$row->fullname.'</td>
+                 <td>'.$row->email.'</td>
+                 <td>'.$row->telephone.'</td>
+                 <td>'.$row->mobile.'</td>
+                 <td>'.$row->Date.'</td>
+                 
+                
+                 <td>
+               <div class="dropdown">
+                <a href="view_detail_data_vol.php?id='.$row->id.'" class="btn btn-success ">View</a>
+  
+  </div>
+        
+               </td>
+             </tr>
+         
+         '
+      ;
+         }
+         echo $display_pp;
+     }
+
+
+
+     function fetch_unchecked_voluntrism_request()
+     {
+         $display_pp='';
+         $stmt = $this->connect()->query("SELECT * FROM voluntrism where seen='false'  ");
+         while ($row=$stmt->fetch(PDO::FETCH_OBJ))
+         {
+             $display_pp .='
+         <tr>
+                 <td>'.$row->id.'</td>
+                 <td>'.$row->fullname.'</td>
+                 <td>'.$row->email.'</td>
+                 <td>'.$row->telephone.'</td>
+                 <td>'.$row->mobile.'</td>
+                 <td>'.$row->Date.'</td>
+                 
+                
+                 <td>
+               <div class="dropdown">
+                <a href="view_detail_data_vol.php?id='.$row->id.'" class="btn btn-danger ">View</a>
+  
+  </div>
+        
+               </td>
+             </tr>
+         
+         '
+      ;
+         }
+         echo $display_pp;
+     }
+
+
+     function fetch_unchecked_consulting_request()
+     {
+         $display_pp='';
+         $stmt = $this->connect()->query("SELECT * FROM consulting where seen='false'  ");
+         while ($row=$stmt->fetch(PDO::FETCH_OBJ))
+         {
+             $display_pp .='
+         <tr>
+                 <td>'.$row->id.'</td>
+                 <td>'.$row->fullname.'</td>
+                 <td>'.$row->email.'</td>
+                 <td>'.$row->telephone.'</td>
+                 <td>'.$row->mobile.'</td>
+                 <td>'.$row->Date.'</td>
+                 
+                
+                 <td>
+               <div class="dropdown">
+                <a href="view_detail_data.php?id='.$row->id.'" class="btn btn-danger ">View</a>
+  
+  </div>
+        
+               </td>
+             </tr>
+         
+         '
+      ;
+         }
+         echo $display_pp;
+     }
+
+
+     
+     function fetch_checked_consulting_request()
+     {
+         $display_pp='';
+         $stmt = $this->connect()->query("SELECT * FROM consulting where seen='true'  ");
+         while ($row=$stmt->fetch(PDO::FETCH_OBJ))
+         {
+             $display_pp .='
+         <tr>
+                 <td>'.$row->id.'</td>
+                 <td>'.$row->fullname.'</td>
+                 <td>'.$row->email.'</td>
+                 <td>'.$row->telephone.'</td>
+                 <td>'.$row->mobile.'</td>
+                 <td>'.$row->Date.'</td>
+                 
+                
+                 <td>
+               <div class="dropdown">
+                <a href="view_detail_data.php?id='.$row->id.'" class="btn btn-success ">View</a>
+  
+  </div>
+        
+               </td>
+             </tr>
+         
+         '
+      ;
+         }
+         echo $display_pp;
+     }
+
      function projects_home()
      {
         $display_product="";
@@ -302,4 +522,29 @@ function news_page()
       header("location:index.php");
       
      }
+     function  add_new_con($con_fname,$con_email,$con_tele,$con_mobile,$con_services,$con_detail,$date)
+
+     {
+        $add_prod_stmt= $this->connect()->prepare("INSERT into  consulting(fullname,email,telephone,mobile,description,other_detail,seen,Date)values(:fullname,:email,:telephone,:mobile,:description,:other_detail,:seen,:Date)");
+        $add_prod_stmt->execute(['fullname' => $con_fname , 'email' => $con_email,'telephone'=>$con_tele,'mobile'=>$con_mobile,'description'=>$con_services,'other_detail' => $con_detail,'seen'=>'false','Date' => $date]);
+      header("location:index.php");
+      
+     }
+
+     function  add_new_train($train_fname,$train_email,$train_tele,$train_mobile,$train_type,$train_payment_type,$train_location,$file_path,$train_explain,$date)
+ 
+     {
+        $add_prod_stmt= $this->connect()->prepare("INSERT into  train(fullname,email,telephone,mobile,train_package,train_location,payment_method,advance_paper,explanation,seen,Date)values(:fullname,:email,:telephone,:mobile,:train_package,:train_location,:payment_method,:advance_paper,:explanation,:seen,:Date)");
+        $add_prod_stmt->execute(['fullname' => $train_fname , 'email' => $train_email,'telephone'=>$train_tele,'mobile'=>$train_mobile,'train_package'=>$train_type,'payment_method'=>$train_payment_type,'train_location'=>$train_location,'train_location'=>$train_location,'advance_paper' => $file_path,'advance_paper' => $file_path,'explanation' => $train_explain,'seen'=>'false','Date' => $date]);
+      header("location:index.php");
+      
+     }
+    
+     function add_new_vol($vol_fname,$vol_email,$vol_tele,$vol_mobile,$vol_type,$vol_explain,$date)
+     {
+      $add_prod_stmt= $this->connect()->prepare("INSERT into  voluntrism(fullname,email,telephone,mobile,area,explation,seen,Date)values(:fullname,:email,:telephone,:mobile,:area,:explation,:seen,:Date)");
+      $add_prod_stmt->execute(['fullname' => $vol_fname , 'email' => $vol_email,'telephone'=>$vol_tele,'mobile'=>$vol_mobile,'area'=>$vol_type,'explation'=>$vol_explain,'seen'=>'false','Date' => $date]);
+   // header("location:index.php");
+     }
+
 }

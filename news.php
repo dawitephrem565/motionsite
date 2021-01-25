@@ -63,23 +63,24 @@ $motion = new Motion();?>
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top">
       <div class="container d-flex align-items-center">
-  
-        <!--<h1 hidden class="logo mr-auto"><a href="index.html">Motion</a></h1>-->
+          <!--<h1 hidden class="logo mr-auto"><a href="index.html">Motion</a></h1>-->
         <!-- Uncomment below if you prefer to use an image logo -->
-    <a href="index.html" class="logo mr-auto"><img src="assets/img/logo-03.png" alt="" class="img-fluid">Motion</a>
+        <a href="index.php" class="logo mr-auto"><img src="assets/img/logo-03.png" alt="" class="img-fluid">Motion</a>
         <nav class="nav-menu d-none d-lg-block">
-        <ul>
-          <li class="active"><a href="index.html">Home</a></li>
-          <li><a href="about.php">About</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="projects.php">Projects</a></li>
         
+          <ul>
+          <li class="active"><a href="index.php">Home</a></li>
+            <li><a href="about.php">About</a></li>
+            <li><a href="services.php">Services</a></li>
+            <li><a href="projects.php">Projects</a></li>
           
-          <li><a href="news.php">News</a></li>
-
-        </ul>
+            
+            <li><a href="news.php">News</a></li>
+  
+          </ul>
         </nav><!-- .nav-menu -->
   
+
         <a href="#" class="appointment-btn scrollto">Registration Now</a>
         
   

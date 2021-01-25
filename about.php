@@ -66,25 +66,14 @@ $motion = new Motion();?>
       <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"> Motion</a>
 
       <nav class="nav-menu d-none d-lg-block">
-        <ul>
-          <li ><a href="index.html">Home</a></li>
-          <li class="active"><a href="about.html">About</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="#">projects</a></li>
-        
-          <li hidden class="drop-down"><a href="">Drop Down</a>
-          <ul>
-          <li class="active"><a href="index.html">Home</a></li>
+      <ul>
+          <li class="active"><a href="index.php">Home</a></li>
           <li><a href="about.php">About</a></li>
-          <li><a href="services.html">Services</a></li>
+          <li><a href="services.php">Services</a></li>
           <li><a href="projects.php">Projects</a></li>
         
           
           <li><a href="news.php">News</a></li>
-
-        </ul>
-          </li>
-          <li><a href="#contact">Contact</a></li>
 
         </ul>
       </nav><!-- .nav-menu -->

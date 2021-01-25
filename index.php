@@ -79,21 +79,23 @@ $motion->new_feed_back($fname,$email,$phone,$message,$date);
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-      <!--<h1 hidden class="logo mr-auto"><a href="index.html">Motion</a></h1>-->
-      <!-- Uncomment below if you prefer to use an image logo -->
-  <a href="index.html" class="logo mr-auto"><img src="assets/img/logo-03.png" alt="" class="img-fluid">Motion</a>
-      <nav class="nav-menu d-none d-lg-block">
-        <ul>
-          <li class="active"><a href="index.html">Home</a></li>
-          <li><a href="about.php">About</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="projects.php">Projects</a></li>
+        <!--<h1 hidden class="logo mr-auto"><a href="index.html">Motion</a></h1>-->
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <a href="index.php" class="logo mr-auto"><img src="assets/img/logo-03.png" alt="" class="img-fluid">Motion</a>
+        <nav class="nav-menu d-none d-lg-block">
         
+          <ul>
+          <li class="active"><a href="index.php">Home</a></li>
+            <li><a href="about.php">About</a></li>
+            <li><a href="services.php">Services</a></li>
+            <li><a href="projects.php">Projects</a></li>
           
-          <li><a href="news.php">News</a></li>
-
-        </ul>
-      </nav><!-- .nav-menu -->
+            
+            <li><a href="news.php">News</a></li>
+  
+          </ul>
+        </nav><!-- .nav-menu -->
+  
 
       <a href="#" class="appointment-btn scrollto">Registration Now</a>
       
@@ -546,12 +548,14 @@ $motion->new_feed_back($fname,$email,$phone,$message,$date);
           <div class="col-lg-2 col-md-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="index.html">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="about.html">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="services.html">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="projects.html">Projects</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="news.html">News</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="index.php">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="about.php">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="services.php">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="projects.php">Projects</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="news.php">News</a></li>
             </ul>
+            
+         
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">

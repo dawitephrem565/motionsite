@@ -25,7 +25,7 @@ if($btn=="Login")
     $_SESSION['email']=$t_email;   
 
 
-     header("location: banner.php");
+     header("location: gallary_motion.php");
    
    }
     
