@@ -1652,7 +1652,9 @@ section {
 .services5 .icon-box {
   text-align: center;
   border: 1px solid #2d5596;
-  padding: 20px 2px;
+  padding-top: 30px;
+  padding-bottom: 5px;
+  width: 100%;
   transition: all ease-in-out 0.3s;
 }
 

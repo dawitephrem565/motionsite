@@ -67,6 +67,23 @@
     <i class="fas fa-file-pdf fa-xs"></i>
     <span>FAQ</span></a>
 </li>
+
+<li class="nav-item ">
+  <a class="nav-link" href="motion_registred_consultany.php">
+    <i class="fas fa-file-pdf fa-xs"></i>
+    <span> Consulting </span></a>
+</li>
+
+<li class="nav-item ">
+  <a class="nav-link" href="motion_registered_voln.php">
+    <i class="fas fa-file-pdf fa-xs"></i>
+    <span> Volunteerism </span></a>
+</li>
+<li class="nav-item ">
+  <a class="nav-link" href="motion_registered_train.php">
+    <i class="fas fa-file-pdf fa-xs"></i>
+    <span> Training </span></a>
+</li>
 <li class="nav-item ">
   <a class="nav-link" href="motion_work_flow.php">
     <i class="fas fa-file-pdf fa-xs"></i>
