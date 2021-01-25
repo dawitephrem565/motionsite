@@ -213,12 +213,12 @@ $motion = new Motion();?>
             <div class="col-lg-2 col-md-6 footer-links">
               <h4>Useful Links</h4>
               <ul>
-                <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="about.html">About us</a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="services.html">Services</a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="projects.html">Projects</a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="news.html">News</a></li>
-              </ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="index.php">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="about.php">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="services.php">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="projects.php">Projects</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="news.php">News</a></li>
+            </ul>
             </div>
   
             <div class="col-lg-3 col-md-6 footer-links">

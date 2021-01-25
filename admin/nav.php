@@ -56,7 +56,7 @@
     <span>Team Members</span></a>
 </li>
 
-<li class="nav-item ">
+<li hidden class="nav-item ">
   <a class="nav-link" href="motion_service.php">
     <i class="fas fa-file-pdf fa-xs"></i>
     <span>Service</span></a>
@@ -66,6 +66,12 @@
   <a class="nav-link" href="faq_motion.php">
     <i class="fas fa-file-pdf fa-xs"></i>
     <span>FAQ</span></a>
+</li>
+
+<li class="nav-item ">
+  <a class="nav-link" href="faq_motion.php">
+    <i class="fas fa-file-pdf fa-xs"></i>
+    <span>Feed Back</span></a>
 </li>
 
 <li class="nav-item ">
